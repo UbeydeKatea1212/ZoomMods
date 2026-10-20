@@ -1,0 +1,32 @@
+name: Build mod
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 16
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '16'
+
+      - name: Set up Gradle 7.3.3
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '7.3.3'
+
+      - name: Build
+        run: gradle build
+
+      - name: Upload the mod .jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: zoom-mod
+          path: build/libs/*.jar
