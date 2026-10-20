@@ -1,0 +1,10 @@
+modLoader="javafml"
+loaderVersion="[37,)"
+license="MIT"
+
+[[mods]]
+modId="zoom"
+version="1.0"
+displayName="Zoom Mod"
+description="A mod that increases reach distance to 6 blocks."
+authors="Anonymous"
